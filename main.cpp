@@ -1,28 +1,24 @@
-#include <iostream>
-#include "HandCalculator.hpp"
+#include "hand_calculator.hpp"
 
 int main()
 {
 
-  HandCalculator calc = HandCalculator(new PairCalculator(new TwoPairCalculator()));
+  HandCalculator calc = HandCalculator();
 
   std::vector<Card> hand =
   {
-    { CardSuit::CLUBS, CardValue::JACK },
-    { CardSuit::DIAMONDS, CardValue::NINE },
-    { CardSuit::DIAMONDS, CardValue::SEVEN },
+    { CardSuit::CLUBS, CardValue::KING },
+    { CardSuit::DIAMONDS, CardValue::QUEEN },
+    { CardSuit::DIAMONDS, CardValue::JACK },
     { CardSuit::SPADES, CardValue::FIVE },
     { CardSuit::HEARTS, CardValue::THREE },
-    { CardSuit::HEARTS, CardValue::TWO },
-    { CardSuit::SPADES, CardValue::TWO }
+    { CardSuit::HEARTS, CardValue::THREE },
+    { CardSuit::SPADES, CardValue::ACE }
   };
 
   Hand myHand;
 
-  myHand.currentCard = hand.cbegin();
-  myHand.highCard = hand[0];
-
-  calc.calculateHands(hand, myHand);
+  calc.calculateHand(hand, myHand);
 
   switch (myHand.handType)
   {
