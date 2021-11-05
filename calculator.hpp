@@ -6,7 +6,7 @@ class ICalculator
   public:
     ICalculator() {}
     ~ICalculator() {};
-    virtual bool calculate(const std::vector<Card> &cards, Hand &h) const = 0;
+    virtual void calculate(const std::vector<Card> &cards, Hand &h) const = 0;
 };
 
 class PairCalculator : public ICalculator
@@ -14,10 +14,10 @@ class PairCalculator : public ICalculator
   public:
     PairCalculator() {}
     ~PairCalculator() {};
-    virtual bool calculate(const std::vector<Card> &cards, Hand &h) const;
+    virtual void calculate(const std::vector<Card> &cards, Hand &h) const;
 };
 
-bool PairCalculator::calculate(const std::vector<Card> &cards, Hand &h) const
+void PairCalculator::calculate(const std::vector<Card> &cards, Hand &h) const
 {
   h.highCard = *(cards.cbegin());
 
@@ -30,7 +30,7 @@ bool PairCalculator::calculate(const std::vector<Card> &cards, Hand &h) const
         h.kicker = *(card + 1);
       }
       std::cout << (*(h.currentCard)).value << " of " << (h.currentCard == cards.cend()) << '\n';
-      return true;
+      return;
     }
     else {
       if ((*(card - 1)).value > h.kicker.value) {
@@ -38,5 +38,5 @@ bool PairCalculator::calculate(const std::vector<Card> &cards, Hand &h) const
       }
     }
   }
-  return false;
+  return;
 }
