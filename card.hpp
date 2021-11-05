@@ -19,8 +19,8 @@ enum class CardSuit
 
 enum class CardValue
 {
-  ACE, TWO, THREE, FOUR, FIVE, SIX, SEVEN,
-  EIGHT, NINE, TEN, JACK, QUEEN, KING
+  NO_VALUE, TWO, THREE, FOUR, FIVE, SIX, SEVEN,
+  EIGHT, NINE, TEN, JACK, QUEEN, KING, ACE
 };
 
 class Card
@@ -29,7 +29,7 @@ public:
   friend std::ostream& operator <<(std::ostream& o, const CardSuit& cs);
   friend std::ostream& operator <<(std::ostream& o, const CardValue& cv);
   Card(CardSuit &&cs, CardValue &&cv) : suit(cs), value(cv) {}
-  Card() : value(CardValue::ACE), suit(CardSuit::NO_SUIT) {}
+  Card() : value(CardValue::NO_VALUE), suit(CardSuit::NO_SUIT) {}
   CardSuit suit;
   CardValue value;
 };
@@ -109,7 +109,9 @@ std::ostream& operator <<(std::ostream& o, const CardValue& cv)
   case CardValue::KING:
     o << "King";
     return o;
+  case CardValue::NO_VALUE:
   default:
+    o << "no";
     return o;
   }
 }

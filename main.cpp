@@ -7,13 +7,13 @@ int main()
 
   std::vector<Card> hand =
   {
-    { CardSuit::CLUBS, CardValue::KING },
+    { CardSuit::CLUBS, CardValue::ACE },
     { CardSuit::DIAMONDS, CardValue::KING },
-    // { CardSuit::DIAMONDS, CardValue::JACK },
-    // { CardSuit::SPADES, CardValue::FIVE },
-    // { CardSuit::HEARTS, CardValue::THREE },
-    // { CardSuit::HEARTS, CardValue::THREE },
-    // { CardSuit::SPADES, CardValue::ACE }
+    { CardSuit::DIAMONDS, CardValue::JACK },
+    { CardSuit::SPADES, CardValue::FIVE },
+    { CardSuit::HEARTS, CardValue::THREE },
+    { CardSuit::HEARTS, CardValue::THREE },
+    { CardSuit::SPADES, CardValue::TWO }
   };
 
   Hand myHand;
@@ -28,7 +28,7 @@ int main()
     break;
   case HandType::PAIR:
     std::cout << "A pair of " << myHand.highCard.value
-              << "s with a " << myHand.kicker.value << " kicker.\n";
+              << "s with " << myHand.kicker.value << " kicker.\n";
     break;
   case HandType::TWO_PAIRS:
     std::cout << "Two pairs: "
