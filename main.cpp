@@ -8,12 +8,12 @@ int main()
   std::vector<Card> hand =
   {
     { CardSuit::CLUBS, CardValue::KING },
-    { CardSuit::DIAMONDS, CardValue::QUEEN },
-    { CardSuit::DIAMONDS, CardValue::JACK },
-    { CardSuit::SPADES, CardValue::FIVE },
-    { CardSuit::HEARTS, CardValue::THREE },
-    { CardSuit::HEARTS, CardValue::THREE },
-    { CardSuit::SPADES, CardValue::ACE }
+    { CardSuit::DIAMONDS, CardValue::KING },
+    // { CardSuit::DIAMONDS, CardValue::JACK },
+    // { CardSuit::SPADES, CardValue::FIVE },
+    // { CardSuit::HEARTS, CardValue::THREE },
+    // { CardSuit::HEARTS, CardValue::THREE },
+    // { CardSuit::SPADES, CardValue::ACE }
   };
 
   Hand myHand;
