@@ -26,16 +26,20 @@ void PairCalculator::calculate(const std::vector<Card> &cards, Hand &h) const
       h.handType = HandType::PAIR;
       h.currentCard = (card + 1);
       h.highCard = *(card);
-      if (h.kicker.value < (*(card)).value) {
-        h.kicker = *(card + 1);
+      Card pocketCards[2];
+
+      for (auto pocket_card = cards.begin(); pocket_card != cards.end(); pocket_card++) {
+        if ((*(pocket_card)).isPocketCard) {
+          pocketCards[0] = *pocket_card;
+          auto next_card = pocket_card + 1;
+          pocketCards[1] = *next_card;
+          break;
+        }
       }
-      std::cout << (*(h.currentCard)).value << " of " << (h.currentCard == cards.cend()) << '\n';
+      std::cout 
+        << pocketCards[0].value << " of " << pocketCards[0].suit << '\n'
+        << pocketCards[1].value << " of " << pocketCards[1].suit << '\n';
       return;
-    }
-    else {
-      if ((*(card - 1)).value > h.kicker.value) {
-        h.kicker = *(card - 1);
-      }
     }
   }
   return;

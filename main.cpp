@@ -10,9 +10,9 @@ int main()
     { CardSuit::CLUBS, CardValue::ACE, false },
     { CardSuit::DIAMONDS, CardValue::KING, false },
     { CardSuit::DIAMONDS, CardValue::JACK, false },
-    { CardSuit::SPADES, CardValue::FIVE, true },
-    { CardSuit::HEARTS, CardValue::THREE, false },
+    { CardSuit::SPADES, CardValue::FIVE, false },
     { CardSuit::HEARTS, CardValue::THREE, true },
+    { CardSuit::CLUBS, CardValue::THREE, true },
     { CardSuit::SPADES, CardValue::TWO, false }
   };
 
