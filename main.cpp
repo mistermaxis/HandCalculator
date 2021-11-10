@@ -7,13 +7,13 @@ int main()
 
   std::vector<Card> hand =
   {
-    { CardSuit::CLUBS, CardValue::ACE },
-    { CardSuit::DIAMONDS, CardValue::KING },
-    { CardSuit::DIAMONDS, CardValue::JACK },
-    { CardSuit::SPADES, CardValue::FIVE },
-    { CardSuit::HEARTS, CardValue::THREE },
-    { CardSuit::HEARTS, CardValue::THREE },
-    { CardSuit::SPADES, CardValue::TWO }
+    { CardSuit::CLUBS, CardValue::ACE, false },
+    { CardSuit::DIAMONDS, CardValue::KING, false },
+    { CardSuit::DIAMONDS, CardValue::JACK, false },
+    { CardSuit::SPADES, CardValue::FIVE, true },
+    { CardSuit::HEARTS, CardValue::THREE, false },
+    { CardSuit::HEARTS, CardValue::THREE, true },
+    { CardSuit::SPADES, CardValue::TWO, false }
   };
 
   Hand myHand;

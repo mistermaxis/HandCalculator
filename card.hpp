@@ -28,10 +28,11 @@ class Card
 public:
   friend std::ostream& operator <<(std::ostream& o, const CardSuit& cs);
   friend std::ostream& operator <<(std::ostream& o, const CardValue& cv);
-  Card(CardSuit &&cs, CardValue &&cv) : suit(cs), value(cv) {}
-  Card() : value(CardValue::NO_VALUE), suit(CardSuit::NO_SUIT) {}
+  Card(CardSuit &&cs, CardValue &&cv, bool is_pocket) : suit(cs), value(cv), isPocketCard(is_pocket) {}
+  Card() : value(CardValue::NO_VALUE), suit(CardSuit::NO_SUIT), isPocketCard(false) {}
   CardSuit suit;
   CardValue value;
+  bool isPocketCard;
 };
 
 class Hand
