@@ -7,16 +7,18 @@ int main()
 
   std::vector<Card> hand =
   {
-    { CardSuit::CLUBS, CardValue::ACE, false },
-    { CardSuit::DIAMONDS, CardValue::KING, false },
-    { CardSuit::DIAMONDS, CardValue::JACK, false },
-    { CardSuit::SPADES, CardValue::FIVE, false },
-    { CardSuit::HEARTS, CardValue::THREE, true },
-    { CardSuit::CLUBS, CardValue::THREE, true },
-    { CardSuit::SPADES, CardValue::TWO, false }
+    { CardSuit::CLUBS, CardValue::ACE },
+    { CardSuit::DIAMONDS, CardValue::KING },
+    { CardSuit::DIAMONDS, CardValue::JACK },
+    { CardSuit::SPADES, CardValue::FIVE },
+    { CardSuit::HEARTS, CardValue::THREE },
+    { CardSuit::CLUBS, CardValue::THREE },
+    { CardSuit::SPADES, CardValue::TWO }
   };
 
   Hand myHand;
+  myHand.pocketLeft = hand[3];
+  myHand.pocketRight = hand[5];
 
   calc.calculateHand(hand, myHand);
 
