@@ -8,25 +8,28 @@ int main()
   std::vector<Card> hand =
   {
     { CardSuit::CLUBS, CardValue::ACE },
-    { CardSuit::DIAMONDS, CardValue::KING },
+    { CardSuit::DIAMONDS, CardValue::ACE },
     { CardSuit::DIAMONDS, CardValue::JACK },
-    { CardSuit::SPADES, CardValue::FIVE },
-    { CardSuit::HEARTS, CardValue::THREE },
+    { CardSuit::SPADES, CardValue::SEVEN },
+    { CardSuit::HEARTS, CardValue::FIVE },
     { CardSuit::CLUBS, CardValue::THREE },
     { CardSuit::SPADES, CardValue::TWO }
   };
 
   Hand myHand;
-  myHand.pocketLeft = hand[3];
-  myHand.pocketRight = hand[5];
+  myHand.highPocket = hand[5];
+  myHand.lowPocket = hand[6];
 
   calc.calculateHand(hand, myHand);
 
   switch (myHand.handType)
   {
   case HandType::HIGH_CARD:
-    std::cout << "High Card: " << myHand.highCard.value << " of "
-              << myHand.highCard.suit << "\n";
+    std::cout << "High Card: " << myHand.highCard.value;
+    if(myHand.kicker.value != CardValue::NO_VALUE) {
+      std:: cout << " of "
+      << myHand.highCard.suit << "\n";
+    }
     break;
   case HandType::PAIR:
     std::cout << "A pair of " << myHand.highCard.value

@@ -42,8 +42,8 @@ public:
   Card highCard;
   Card lowCard;
   Card kicker;
-  Card pocketLeft;
-  Card pocketRight;
+  Card highPocket;
+  Card lowPocket;
   std::vector<Card>::const_iterator currentCard;
 };
 

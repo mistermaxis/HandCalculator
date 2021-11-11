@@ -19,21 +19,27 @@ class PairCalculator : public ICalculator
 
 void PairCalculator::calculate(const std::vector<Card> &cards, Hand &h) const
 {
+  h.highCard = *(cards.cbegin());
   for (auto card = cards.cbegin() + 1; card != cards.cend(); card++) {
     if ((*card).value == (*(card - 1)).value) {
       h.handType = HandType::PAIR;
       h.currentCard = (card + 1);
       h.highCard = *(card);
-      if (h.pocketLeft.value != h.pocketRight.value) {
-       if (h.pocketLeft.value == h.highCard.value) {
-         h.kicker.value = h.pocketRight.value;
+
+      if (h.highPocket.value != h.lowPocket.value) {
+       if (h.highPocket.value == h.highCard.value) {
+         h.kicker.value = h.lowPocket.value;
        }
-       if (h.pocketRight.value == h.highCard.value) {
-         h.kicker.value = h.pocketLeft.value;
+       if (h.lowPocket.value == h.highCard.value) {
+         h.kicker.value = h.highPocket.value;
+       }
+       else {
+         h.kicker.value = h.highPocket.value;
        }
       }
       return;
     }
   }
+  h.kicker = h.highPocket;
   return;
 }
