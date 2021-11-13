@@ -8,9 +8,9 @@ int main()
   std::vector<Card> hand =
   {
     { CardSuit::CLUBS, CardValue::ACE },
-    { CardSuit::DIAMONDS, CardValue::ACE },
+    { CardSuit::DIAMONDS, CardValue::KING },
     { CardSuit::DIAMONDS, CardValue::JACK },
-    { CardSuit::SPADES, CardValue::SEVEN },
+    { CardSuit::SPADES, CardValue::FIVE },
     { CardSuit::HEARTS, CardValue::FIVE },
     { CardSuit::CLUBS, CardValue::THREE },
     { CardSuit::SPADES, CardValue::TWO }

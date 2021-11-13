@@ -28,6 +28,8 @@ class Card
 public:
   friend std::ostream& operator <<(std::ostream& o, const CardSuit& cs);
   friend std::ostream& operator <<(std::ostream& o, const CardValue& cv);
+  friend bool operator==(const Card& first, const Card& second);
+  friend bool operator>=(const Card &first, const Card &second);
   Card(CardSuit &&cs, CardValue &&cv) : suit(cs), value(cv) {}
   Card() : value(CardValue::NO_VALUE), suit(CardSuit::NO_SUIT) {}
   CardSuit suit;
@@ -116,4 +118,13 @@ std::ostream& operator <<(std::ostream& o, const CardValue& cv)
     o << "no";
     return o;
   }
+}
+
+bool operator==(const Card& f, const Card& s) {
+  return (f.suit == s.suit && f.value == s.value);
+}
+
+bool operator>=(const Card &f, const Card &s)
+{
+  return (f.value > s.value || f == s);
 }
