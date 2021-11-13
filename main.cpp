@@ -11,13 +11,13 @@ int main()
     { CardSuit::DIAMONDS, CardValue::KING },
     { CardSuit::DIAMONDS, CardValue::JACK },
     { CardSuit::SPADES, CardValue::FIVE },
-    { CardSuit::HEARTS, CardValue::FIVE },
+    { CardSuit::HEARTS, CardValue::THREE },
     { CardSuit::CLUBS, CardValue::THREE },
     { CardSuit::SPADES, CardValue::TWO }
   };
 
   Hand myHand;
-  myHand.highPocket = hand[5];
+  myHand.highPocket = hand[4];
   myHand.lowPocket = hand[6];
 
   calc.calculateHand(hand, myHand);
