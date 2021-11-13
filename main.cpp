@@ -10,30 +10,34 @@ int main()
     { CardSuit::CLUBS, CardValue::ACE },
     { CardSuit::DIAMONDS, CardValue::KING },
     { CardSuit::DIAMONDS, CardValue::JACK },
-    { CardSuit::SPADES, CardValue::FIVE },
-    { CardSuit::HEARTS, CardValue::THREE },
+    { CardSuit::SPADES, CardValue::SEVEN },
+    { CardSuit::HEARTS, CardValue::FIVE },
     { CardSuit::CLUBS, CardValue::THREE },
-    { CardSuit::SPADES, CardValue::TWO }
+    { CardSuit::SPADES, CardValue::THREE }
   };
 
   Hand myHand;
-  myHand.highPocket = hand[4];
-  myHand.lowPocket = hand[6];
+  myHand.highPocket = hand[3];
+  myHand.lowPocket = hand[4];
 
   calc.calculateHand(hand, myHand);
 
   switch (myHand.handType)
   {
   case HandType::HIGH_CARD:
-    std::cout << "High Card: " << myHand.highCard.value;
+    std::cout << myHand.highCard.value << " high";
     if(myHand.kicker.value != CardValue::NO_VALUE) {
-      std:: cout << " of "
-      << myHand.highCard.suit << "\n";
+      std:: cout << ", "
+      << myHand.kicker.value << " kicker";
     }
+    std::cout << "\n";
     break;
   case HandType::PAIR:
-    std::cout << "A pair of " << myHand.highCard.value
-              << "s with " << myHand.kicker.value << " kicker.\n";
+    std::cout << "A pair of " << myHand.highCard.value << "s";
+    if (myHand.kicker.value != CardValue::NO_VALUE) {
+      std::cout << ", " << myHand.kicker.value << " kicker.";
+    }
+    std::cout << "\n";
     break;
   case HandType::TWO_PAIRS:
     std::cout << "Two pairs: "

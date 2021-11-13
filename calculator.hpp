@@ -27,19 +27,23 @@ void PairCalculator::calculate(const std::vector<Card> &cards, Hand &h) const
       h.highCard = *(card);
 
       if (h.highPocket.value != h.lowPocket.value) {
+
         if (h.highPocket.value == h.highCard.value) {
-          if (h.highPocket >= cards[4]) {
-            h.kicker.value = h.lowPocket.value;
+          if (h.lowPocket >= cards[4]) {
+            h.kicker = h.lowPocket;
           }
         }
-        if (h.lowPocket.value == h.highCard.value) {
-          if (h.lowPocket >= cards[4])
+        else if (h.lowPocket.value == h.highCard.value) {
+          if (h.highPocket >= cards[4])
           {
-            h.kicker.value = h.highPocket.value;
+            h.kicker = h.highPocket;
           }
         }
         else {
-          h.kicker.value = h.highPocket.value;
+          if (h.highPocket >= cards[4])
+          {
+            h.kicker = h.highPocket;
+          }
         }
       }
       return;
